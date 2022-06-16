@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <!--head-->
+    <%- include ("./partials/head")  %> 
+
+<body>
+
+    <!--header-->
+    <%- include ("./partials/header")  %>
+
+    <main>
+        <section class="main-section">
+
+            <article class="section-img">
+                    <img src="/img/bannerHome.jpg" alt="imagen principal del index">
+            </article>
+
+        </section>
+
+        <section class="main-section2">
+            
+            <h3>¿Por que comprar con nosotros?</h3>
+
+            <article>
+
+                <div>
+                    <i class="fa-solid fa-truck-fast"></i>
+                    <p>Servicio de entrega</p>                    
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-medal"></i>
+                    <p>Garantía</p>
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-headset"></i>
+                    <p>Soporte en línea</p>                   
+                </div>
+            </article>
+
+        </section>
+
+        <section class="main-section3">
+            
+            <% productos.forEach(element => { %>
+            
+
+                <article>
+                    <a href="/productos/productDetail/<%= element.id %> ">
+                        <img src="/img/imgProducts/<%=element.img%> " alt="">
+                        <h3><%= element.marca %> </h3>
+                        <p><%= element.modelo %> </p>
+                        <p>ver detalle</p>
+                    </a>
+                    <p><%= element.precio %> </p>
+                </article>
+
+           
+            <% }) %> 
+
+        </section>
+
+    </main>
+
+    <!--footer-->
+    <%- include ("./partials/footer")  %>
+
+</body>
+</html>

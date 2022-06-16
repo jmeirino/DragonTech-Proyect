@@ -1,0 +1,54 @@
+<header>
+    
+    <section class="header-box">
+
+        <div class="logo">
+            <a title="Dragon Tech" href="https://damp-ridge-01994.herokuapp.com/"><img src="/img/logo.png" alt="logo"></a>
+        </div>
+
+        <nav class="nav-header">
+
+        <ul class="menu">    
+            <li class="menu-item"><a class="menu-item_link" href="/">Home</a></li>
+            <li class="menu-item"><a class="menu-item_link" href="/productos/productList">Productos</a></li>
+            
+            
+            
+          
+            
+        
+            <% if (locals.isLogged) { %>
+
+                <% if (locals.userLogged.categoria === "administrador" ) { %>
+                    <li class="menu-item"><a class="menu-item_link" href="/administrador">administrador</a></li>
+                <% } %>
+
+                    <li class="menu-itemContainer"><a class="menu-item_link submenu-btn" href="#"><i class="fa-solid fa-user"></i> <%= locals.userLogged.nombre %> <i class="fa-solid fa-caret-down"></i></a>
+                        <ul class="submenu">
+                            <li class="menu-item"><a class="menu-item_link" href="/users/userProfile">Perfil</a></li>
+                            <li class="menu-item"><a class="menu-item_link" href="/users/userLogout">Salir</a></li>
+                        </ul>
+                    </li>
+
+            <% } else { %>
+        
+                <li class="menu-item"><a class="menu-item_link" href="/users/login">Login</a></li>
+                <li class="menu-item"><a class="menu-item_link" href="/users/register">Registrarse</i></a></li>
+
+            <% } %>
+
+            
+
+        </ul>
+        
+    </nav>
+    
+    <div class="menu-burger">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+
+    </section>
+    
+
+    
+</header>

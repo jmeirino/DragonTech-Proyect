@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <!--Head-->
+    <%- include ("./partials/head")  %> 
+    
+    <body>
+
+    <!--Header-->    
+    <%- include ("./partials/header")  %>
+    
+    <main>
+        <section class="formulario">
+
+            <h2>Login</h2>
+
+            <form action="/users/login" method="POST">
+ 
+                <input type="text" name="email" placeholder="EMAIL">
+
+                <input type="password" name="password" required placeholder="PASSWORD ">
+
+                
+                <input type="checkbox" name="recordar_usuario"> Recordar mi usuario
+                
+                <button class="bottom-login" type="submit">INGRESAR</button>  
+
+
+
+                <% if (locals.errors && errors.email) { %>
+                    <div class="text-danger">
+                        <%= errors.email.msg %> 
+                    </div>
+                <% } %>
+            
+                <a href="#">¿Perdiste tu contraseña?</a>
+                <a href="/users/register">¿No tienes cuenta?, Registrate</a>
+            </form>
+        </section>     
+    </main>
+
+    <!--Footer-->
+    <%- include ("./partials/footer")  %> 
+    
+</body>
+</html>

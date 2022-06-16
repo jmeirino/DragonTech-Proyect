@@ -1,0 +1,26 @@
+[
+	{
+		"id": 1,
+		"nombre": "German",
+		"apellido": "Carosio",
+		"documento": "32244174",
+		"fechaNacimiento": "2022-06-23",
+		"telefono": "1161245050",
+		"email": "carosiogerman@gmail.com",
+		"categoria": "administrador",
+		"password": "$2a$10$0d984GT2HWePP6B2NzsDIuJq24V8qAqLx8GW16upZoP0fJ423bECi",
+		"img": "1654562236678.png"
+	},
+	{
+		"id": 2,
+		"nombre": "juan",
+		"apellido": "perez",
+		"documento": "1111111111",
+		"fechaNacimiento": "2022-06-16",
+		"telefono": "11111111111",
+		"email": "juan@perez.com",
+		"categoria": "cliente",
+		"password": "$2a$10$NcGtzsbA5ZBa5FOcBmesDeENQ4/h.5p7DcNmNzgZxRVxulTLBmCUy",
+		"img": "default.png"
+	}
+]

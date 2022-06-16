@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <!--Head-->
+   <%- include ("./partials/head")  %> 
+
+   <body>
+
+   <!--Header-->    
+   <%- include ("./partials/header")  %>
+
+   
+    <main>
+
+        <section class="detail-main">
+
+            <article>
+        
+                <div>
+                    <img src="/img/imgProducts/<%= producto.img %> " alt="">
+                </div>
+                <div>
+                    <button class="buttom-carrito" type="submit">COMPRAR</button>   
+                </div>
+                <div>    
+                <h4><%= producto.marca %> </h4> 
+                <h5><%= producto.modelo %> </h5>
+                <h3><%= producto.precio %> </h3>
+                <p><%= producto.detalle %> </p>
+                </div>
+            </article>
+            </article>
+
+        </section>
+
+    </main>
+    
+    <!--Footer-->
+    <%- include ("./partials/footer")  %> 
+    
+</body>
+</html>

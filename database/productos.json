@@ -1,0 +1,56 @@
+[
+	{
+		"id": 1,
+		"marca": "Kotion Each",
+		"modelo": "B3510",
+		"precio": "$5.299",
+		"detalle": "Modo cable: ideal para jugar en PS4, PC, Switch Xone ingresando su cable desmontable con micrófono, control de volumen, encendido y apagado del micrófono.",
+		"categoria": "headset",
+		"img": "auri1.jpg"
+	},
+	{
+		"id": 2,
+		"marca": "HyperX",
+		"modelo": "Cloud Stinger Core Wireless",
+		"precio": "$14.999",
+		"detalle": "¡Experimentá la adrenalina de sumergirte en la escena de otra manera! Tener auriculares específicos para jugar cambia completamente tu experiencia en cada partida.",
+		"categoria": "headset",
+		"img": "auri2.jpg"
+	},
+	{
+		"id": 3,
+		"marca": "Logitech",
+		"modelo": "Series G332 ",
+		"precio": "$7.590",
+		"detalle": "Los Logitech G332 para gaming permiten oír más de lo que pasa en el juego. Disfruta de la experiencia completa de todos tus juegos favoritos.", 
+		"categoria": "headset",
+		"img": "auri3.jpg"
+	},
+	{
+		"id": 4,
+		"marca": "Redragon",
+		"modelo": "Griffin M607 negro",
+		"precio": "$1.979",
+		"detalle": "Adaptado a tus movimientosEl mouse gamer te ofrecerá la posibilidad de marcar la diferencia y sacar ventajas en tus partidas.",
+		"categoria": "mouse",
+		"img": "mouse1.jpg"
+	},
+	{
+		"id": 5,
+		"marca": "Redragon",
+		"modelo": "Kumara K552",
+		"precio": "$1.979",
+		"detalle": "Teclado especialmente diseñado para ganar todas tus partidas en PC",
+		"categoria": "teclado",
+		"img": "teclado1.jpg"
+	},
+	{
+		"id": 6,
+		"marca": "Redragon",
+		"modelo": "Griffin M607 negro",
+		"precio": "$1.979",
+		"detalle": "Su conectividad y sensor suave ayudará a que te desplaces rápido por la pantalla.",
+		"categoria": "mouse",
+		"img": "mouse1.jpg"
+	}
+]

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <!--head-->
+    <%- include ("./partials/head")  %> 
+
+<body>
+
+    <!--header-->
+    <%- include ("./partials/header")  %>
+
+    <main>
+        <section class="userProfile">
+
+            <article class="userProfile-article">
+            
+                <h2>Hola <%= user.nombre %> </h2>
+                <img src="/img/imgUsers/<%= user.img %>" alt="">
+
+                <div>
+                    <%= user.email %>
+                </div>
+             <% if (user.categoria === "administrador") { %>
+
+                <a href="/administrador">ADMINISTRAR</a>
+
+             <% } %>
+                
+
+                <a href="/users/userLogout">SALIR</a>
+            </article>
+
+        </section>
+        
+    </main>
+
+    <!--footer-->
+    <%- include ("./partials/footer")  %>
+
+</body>
+</html>
