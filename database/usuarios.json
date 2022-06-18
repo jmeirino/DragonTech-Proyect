@@ -1,14 +1,26 @@
 [
-	{
-		"id": 1,
-		"nombre": "Administrador",
-		"apellido": "Administrador",
-		"documento": "111",
-		"fechaNacimiento": "2022-06-22",
-		"telefono": "111",
-		"email": "administrador@administrador.com",
-		"categoria": "administrador",
-		"password": "$2a$10$0d984GT2HWePP6B2NzsDIuJq24V8qAqLx8GW16upZoP0fJ423bECi",
-		"img": "1655561486155.png"
-	}
+ {
+  "id": 1,
+  "nombre": "Administrador",
+  "apellido": "Administrador",
+  "documento": "111",
+  "fechaNacimiento": "2022-06-22",
+  "telefono": "111",
+  "email": "administrador@administrador.com",
+  "categoria": "administrador",
+  "password": "$2a$10$0d984GT2HWePP6B2NzsDIuJq24V8qAqLx8GW16upZoP0fJ423bECi",
+  "img": "1655561486155.png"
+ },
+ {
+  "id": 2,
+  "nombre": "German",
+  "apellido": "Carosio",
+  "documento": "32244174",
+  "fechaNacimiento": "2022-06-07",
+  "telefono": "1161245050",
+  "email": "carosiogerman@gmail.com",
+  "categoria": "cliente",
+  "password": "$2a$10$q712802zVVWO0tASI57EAOXCJohavgfNAMh0sLaEQVs.yQKmU3V3C",
+  "img": "1655577680512.png"
+ }
 ]

@@ -130,11 +130,10 @@ section {
 /*MAIN*/
 
 main {
-    margin-top: 100px;
-    margin-bottom: 30px;
+    margin-top: 80px;
     margin-left: auto;
     margin-right: auto;
-    width: 90%;
+    width: 95%;
 }
 
 main h2 {
@@ -154,6 +153,12 @@ main a {
         text-decoration: none;
 }
 
+@media (min-width: 768px) {
+
+    main {
+        margin-top: 100px;
+    }
+}
 /*FOOTER*/
 
 .footer-section {
