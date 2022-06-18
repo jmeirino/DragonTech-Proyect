@@ -25,11 +25,13 @@ app.use(session({
   saveUninitialized: false
 }));
 
+
 //cookies
 app.use(cookies());
 
-//vista header segun este logueado o no
+//logueo
 app.use(userLogged);
+
 
 //para usar metodo Put y Delete
 app.use(methodOverride("_method"));
