@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <!--Head-->
+   <%- include ("./partials/head")  %> 
+
+   <body>
+
+   <!--Header-->    
+   <%- include ("./partials/header")  %>
+
+   
+    <main>
+        <section class="formulario">
+
+            <h2>Edición de productos</h2>
+
+            <article class="editar-producto">
+
+                
+                <p>ID de producto: <%= productoEdit.id %> </p>
+
+                <img src="/img/imgProducts/<%= productoEdit.img %>" alt="">   
+
+                <form action="/administrador/productEdit/<%= productoEdit.id %>?_method=PUT " method="POST" enctype="multipart/form-data">
+                
+                    <input value="<%= productoEdit.marca %>" type="text" name="marca" id="marca" required placeholder="Marca" >
+                    <input value="<%= productoEdit.modelo %>" type="text" name="modelo" id="modelo" required placeholder="Modelo" >
+                    <input value="<%= productoEdit.precio %>" type="text" name="precio" id="precio" required placeholder="Precio">
+                    <textarea name="detalle" id="detalle" required placeholder="Detalle de producto"><%= productoEdit.detalle %></textarea>           
+                    <select  name="categoria" id="categoria">
+                        <option value="">Categoria</option>
+                        <option value="headset" <%= productoEdit.categoria === "headset" ? "selected" : "" %> >Headset</option>
+                        <option value="mouse" <%= productoEdit.categoria === "mouse" ? "selected" : "" %>>Mouse</option>
+                        <option value="teclado" <%= productoEdit.categoria === "teclado" ? "selected" : "" %>>Teclado</option>
+                    </select>
+                    <br>
+                    <label for="file">Imagen de Producto</label>
+                    <input type="file" name="img" id="img"  accept=".jpg, .png">
+                    <button class="bottom-login" type="submit">MODIFICAR</button>  
+                </form>
+
+            </article>
+            
+            <article class="modificar-producto">
+
+                
+            </article>
+
+        </section>
+
+    </main>
+    
+    <!--Footer-->
+    <%- include ("./partials/footer")  %> 
+    
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <!--Head-->
+   <%- include ("./partials/head")  %> 
+
+   <body>
+
+   <!--Header-->    
+   <%- include ("./partials/header")  %>
+
+   
+    <main>
+        <section>
+
+            
+        </section>
+
+        
+        <section class="productList">
+
+            <h2>Administrador: Lista de productos</h2>
+
+            <div class="buttonCreate-product">
+                <button><a href="/administrador/productCreate">CREAR PRODUCTO</a></button>
+            </div>
+
+            <% productos.forEach(element => { %>
+             
+                <article class="productList__product">
+                    
+                    
+                        <img src="/img/imgProducts/<%= element.img  %>" alt="">
+                     
+                    
+                        <h3><%= element.marca  %> </h3>
+                        <p><%= element.modelo  %></p>
+                    
+                   
+                    <p><%= element.precio  %> </p>
+
+                    <div class="buttonsCrud-products">
+                        <a href="/administrador/productEdit/<%= element.id %> ">
+                            <button class="buttonEdit-product"><i class="fa-solid fa-pen"></i></button>
+                        </a>
+
+                        <form action="/administrador/productDelete/<%= element.id %>?_method=DELETE" method="post">
+                            <button class="buttonDelete-product" type="submit"><i class="fa-solid fa-trash-can"></i></button>
+                        </form>
+                    </div>
+                </article>
+
+            <% }) %>
+            
+         
+        </section>
+    </main>
+    
+    <!--Footer-->
+    <%- include ("./partials/footer")  %> 
+    
+</body>
+</html>

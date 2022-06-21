@@ -12,10 +12,8 @@ const ProductsController = require ("../controllers/ProductsController")
 router.get("/productList", ProductsController.productList);
 router.get("/productDetail/:id", ProductsController.productDetail);
 router.get("/categorias/:categoria", ProductsController.categorias);
-/*
-//carrito
 router.get("/productCart", ProductsController.productCart);
-*/
+
 
 
 

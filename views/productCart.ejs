@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <!--Head-->
+    <%- include ("./partials/head")  %> 
+
+    <body>
+
+    <!--Header-->    
+    <%- include ("./partials/header")  %>
+
+    <main>
+        <section class="productosCarrito">
+
+            <h2>Carrito de compras</h2>
+            
+            <article class="productosCarrito__item">
+                
+                <img src="/img/imgProducts/auri3.jpg" alt="">
+
+                
+                <h3>Auriculares gamer Razer Kraken X Lite black</h3>
+                    
+                <div class="productosCarrito_seleccion_cantidad">
+                    <button class="cantidad-button-resta">-</button><span>1</span><button class="cantidad-button-suma">+</button>
+                </div>
+
+                <p>$10.000</p>
+
+            </article>
+
+            <article class="productosCarrito__item">
+                
+                <img src="/img/imgProducts/auri1.jpg" alt="">
+
+                
+                <h3>Auriculares gamer Razer Kraken X Lite black</h3>
+                    
+                <div class="productosCarrito_seleccion_cantidad">
+                    <button class="cantidad-button-resta">-</button><span>1</span><button class="cantidad-button-suma">+</button>
+                </div>
+
+                <p>$10.000</p>
+                
+            </article>
+
+            <article class="productosCarrito__total">
+
+                <button>Comprar</button>
+                <span>$12598</span>
+                
+            </article>
+
+        </section>
+
+        <section class="productosRecomendados">
+    
+            <h2>Recomendaciones para ti</h2>
+            <br>
+            <article class="productosRecomendados_imagenes">
+                <img src="/img/imgProducts/auri1.jpg" alt="">
+                <img src="/img/imgProducts/auri2.jpg" alt=""> 
+                <img src="/img/imgProducts/auri3.jpg" alt="">
+            </article>
+            
+        </section>
+    </main>
+
+    <!--Footer-->
+    <%- include ("./partials/footer")  %> 
+    
+</body>
+</html>

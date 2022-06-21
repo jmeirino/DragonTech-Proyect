@@ -40,17 +40,13 @@ let ProductsController = {
           })
 
          res.render("categorias",{categoria:categoria,categorias: categorias});
-     }
-
-
-
-
-
-/*carrito de compras
+     },
+     
+     //carrito de compras
      productCart: (req,res) => {
           //No implementado
           res.render("productCart");
-     }*/
+     }
 
 }
 
