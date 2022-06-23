@@ -1,0 +1,12 @@
+<section class="categorias">
+    
+    <h2>Categorias</h2>
+
+    <ul>
+        <li><a href="/productos/productList ">Todos</a></li>
+        <% categorias.forEach(element => { %>
+            <li><a href="/productos/categorias/<%= element.toLowerCase() %> "><%= element %></a></li>
+        <% }) %>
+    </ul>
+
+</section>

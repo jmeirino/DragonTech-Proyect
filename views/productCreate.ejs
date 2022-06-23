@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <!--Head-->
+   <%- include ("./partials/head")  %> 
+
+   <body>
+
+   <!--Header-->    
+   <%- include ("./partials/header")  %>
+
+   
+    <main>
+        <section class="formulario">
+
+            <h2>Creación de productos</h2>
+
+            <article class="crear-producto">
+
+                
+
+                <form action="/administrador/productCreate " method="POST" enctype="multipart/form-data" >
+   
+                    <input type="text" name="marca" id="marca" required placeholder="Marca">
+                    <input type="text" name="modelo" id="modelo" required placeholder="Modelo">
+                    <input type="text" name="precio" id="precio" required placeholder="Precio">
+                    <textarea  name="detalle" id="detalle" required placeholder="Detalle de producto"></textarea>
+                    <select  name="categoria" id="categoria">
+                        <option value="">Categoria</option>
+                        <option value="headset">Headset</option>
+                        <option value="mouse">Mouse</option>
+                        <option value="teclado">Teclado</option>
+                    </select>
+                    <br>
+                    <label for="file">Imagen de Producto</label>
+                    <input type="file" name="img" id="img"  accept=".jpg, .png">
+                    <button class="bottom-login" type="submit">CREAR</button>  
+                </form>
+
+            </article>
+            
+            <article class="modificar-producto">
+
+                
+            </article>
+
+        </section>
+
+    </main>
+    
+    <!--Footer-->
+    <%- include ("./partials/footer")  %> 
+    
+</body>
+</html>

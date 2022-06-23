@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <!--head-->
+    <%- include ("./partials/head")  %> 
+
+<body>
+
+    <!--header-->
+    <%- include ("./partials/header")  %>
+
+
+    <main>
+        <section class="formulario">
+
+            <h2>Edicion de Usuario</h2>
+
+            <p>ID: <%= userEdit.id %></p>
+
+            <img src="/img/imgUsers/<%= userEdit.img %>" alt="">
+            
+            <form action="/administrador/usersEdit/<%= userEdit.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                
+                <input 
+                type="text" 
+                name="nombre"  
+                placeholder="Nombre" 
+                value="<%= userEdit.nombre %>">
+                
+                <% if (locals.errors && errors.nombre) { %>
+                    <div class="text-danger">
+                        <%= errors.nombre.msg %> 
+                    </div>
+                <% } %>
+                
+                <input 
+                type="text" 
+                name="apellido" 
+                placeholder="Apellido" 
+                value="<%= userEdit.apellido %>">
+                
+                <% if (locals.errors && errors.apellido) { %>
+                    <div class="text-danger">
+                        <%= errors.apellido.msg %> 
+                    </div>
+                <% } %>
+                
+                <input 
+                type="text" 
+                name="documento" 
+                placeholder="Documento" 
+                value="<%= userEdit.documento %>">
+                
+                    <% if (locals.errors && errors.documento) { %>
+                        <div class="text-danger">
+                            <%= errors.documento.msg %> 
+                        </div>
+                    <% } %>
+                
+                <input 
+                type="date" 
+                name="fechaNacimiento" 
+                value="<%= userEdit.fechaNacimiento %>">
+                
+                    <% if (locals.errors && errors.fechaNacimiento) { %>
+                        <div class="text-danger">
+                            <%= errors.fechaNacimiento.msg %> 
+                        </div>
+                    <% } %>
+                
+                <input 
+                type="text" 
+                name="telefono" 
+                placeholder="Telefono" 
+                value="<%= userEdit.telefono %>">
+                
+                    <% if (locals.errors && errors.telefono) { %>
+                        <div class="text-danger">
+                            <%= errors.telefono.msg %> 
+                        </div>
+                    <% } %>
+                
+                <input 
+                type="text" 
+                name="email" 
+                placeholder="Email" 
+                value="<%= userEdit.email %>">
+                
+                    <% if (locals.errors && errors.email) { %>
+                        <div class="text-danger">
+                            <%= errors.email.msg %> 
+                        </div>
+                    <% } %>
+                
+                <select name="categoria" >
+                    <option value="">Seleccione una opción</option>
+                    <option value="administrador" <%= userEdit.categoria === "administrador" ? "selected" : "" %> >Administrador</option>
+                    <option value="cliente" <%= userEdit.categoria === "cliente" ? "selected" : "" %> >Cliente</option>
+                </select>
+                
+                    <% if (locals.errors && errors.categoria) { %>
+                        <div class="text-danger">
+                            <%= errors.categoria.msg %> 
+                        </div>
+                    <% } %>
+                
+                <input 
+                type="file" 
+                name="img"
+                >
+                <p>*Este campo no es obligatorio</p> 
+                <!--
+                <% if (locals.errors && errors.img) { %>
+                    <div class="text-danger">
+                        <%= errors.img.msg %> 
+                    </div>
+                <% } %>
+                   
+                -->
+                <input 
+                type="password" 
+                name="password" 
+                placeholder="Paswword"
+                value="<%= userEdit.password %>">
+                
+                
+                <% if (locals.errors && errors.password) { %>
+                    <div class="text-danger">
+                        <%= errors.password.msg %> 
+                    </div>
+                <% } %>
+                
+                <br>
+     
+                <button class="button-register" type="submit">MODIFICAR USUARIO</button>
+            </form>
+        </section>    
+
+        
+    </main>
+
+    <!--footer-->
+    <%- include ("./partials/footer")  %>
+
+</body>
+</html>

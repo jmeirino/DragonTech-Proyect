@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <!--head-->
+    <%- include ("./partials/head")  %> 
+
+<body>
+
+    <!--header-->
+    <%- include ("./partials/header")  %>
+
+    <main>
+        <section >
+            <!---->
+            <h2>lista de usuarios</h2>
+            <div class="buttonCreate-product">
+                <a href="/administrador/usersCreate">CREAR USUARIO</a>
+            </div>
+        
+            <% usuarios.forEach(element => { %>
+
+                <article class="usersList">
+                        <div class="img-usersList">
+                            <img src="/img/imgUsers/<%= element.img ? element.img : "default.png" %>" alt="">
+                        </div>
+                    <div>
+                        <h3>ID: <%= element.id %></h3>
+                        <p>Nombre: <%= element.nombre %> </p>
+                        <p>Apellido: <%= element.apellido %> </p>
+                        <p>Documento: <%= element.documento %> </p>
+                        <p>F.Nacimiento: <%= element.fechaNacimiento %> 
+                        <p>Telefono: <%= element.telefono %> </p>
+                        <p>Email: <%= element.email %> </p>
+                        <p>Categoria: <%= element.categoria %> </p>
+                        
+                    </div>
+
+                    <div class="botonesCrud-usuarios">
+                        <a href="/administrador/usersEdit/<%= element.id %> ">
+                            <button class="buttonEdit-product"><i class="fa-solid fa-pen"></i></button>
+                        </a>
+
+                        <form action="/administrador/delete/<%= element.id %>?_method=DELETE" method="post">
+                            <button class="buttonDelete-product" type="submit"><i class="fa-solid fa-trash-can"></i></button>
+                        </form>
+                    </div>
+                </article>
+                
+            <% }) %>
+            
+
+        </section>
+        
+    </main>
+
+    <!--footer-->
+    <%- include ("./partials/footer")  %>
+
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <!--Head-->
+    <%- include ("./partials/head")  %> 
+    
+    <body>
+
+    <!--Header-->    
+    <%- include ("./partials/header")  %>
+
+    <main>
+        <section class="formulario">
+
+            <h2>REGISTRO</h2>
+            
+           
+            <article>
+                
+                <form action="/users/register" method="POST" enctype="multipart/form-data" >
+                    
+                    <input 
+                    type="text" 
+                    name="nombre"  
+                    placeholder="Nombre" 
+                    value="<%= locals.old ? old.nombre : ""  %>">
+                    
+                    <% if (locals.errors && errors.nombre) { %>
+                        <div class="text-danger">
+                            <%= errors.nombre.msg %> 
+                        </div>
+                    <% } %>
+                    
+                    <input 
+                    type="text" 
+                    name="apellido" 
+                    placeholder="Apellido" 
+                    value="<%= locals.old ? old.apellido : ""  %>">
+                    
+                    <% if (locals.errors && errors.apellido) { %>
+                        <div class="text-danger">
+                            <%= errors.apellido.msg %> 
+                        </div>
+                    <% } %>
+                    
+                    <input 
+                    type="text" 
+                    name="documento" 
+                    placeholder="Documento" 
+                    value="<%= locals.old ? old.documento : ""  %>">
+                    
+                        <% if (locals.errors && errors.documento) { %>
+                            <div class="text-danger">
+                                <%= errors.documento.msg %> 
+                            </div>
+                        <% } %>
+                    
+                    <input 
+                    type="date" 
+                    name="fechaNacimiento" 
+                    value="<%= locals.old ? old.fechaNacimiento : ""  %>">
+                    
+                        <% if (locals.errors && errors.fechaNacimiento) { %>
+                            <div class="text-danger">
+                                <%= errors.fechaNacimiento.msg %> 
+                            </div>
+                        <% } %>
+                    
+                    <input 
+                    type="text" 
+                    name="telefono" 
+                    placeholder="Telefono" 
+                    value="<%= locals.old ? old.telefono : ""  %>">
+                    
+                        <% if (locals.errors && errors.telefono) { %>
+                            <div class="text-danger">
+                                <%= errors.telefono.msg %> 
+                            </div>
+                        <% } %>
+                    
+                    <input 
+                    type="text" 
+                    name="email" 
+                    placeholder="Email" 
+                    value="<%= locals.old ? old.email : ""  %>">
+                    
+                        <% if (locals.errors && errors.email) { %>
+                            <div class="text-danger">
+                                <%= errors.email.msg %> 
+                            </div>
+                        <% } %>
+                    
+                    
+                    <input type="file" name="img" >
+                        <p>*Este campo no es obligatorio</p>        
+                   
+
+                    <input 
+                    type="password" 
+                    name="password" 
+                    placeholder="Paswword">
+                    
+                    
+                    <% if (locals.errors && errors.password) { %>
+                        <div class="text-danger">
+                            <%= errors.password.msg %> 
+                        </div>
+                    <% } %>
+                        
+                    
+
+                    <br>
+                    
+                    <button type="submit">CREAR USUARIO</button>
+
+                </form>
+                
+            </article>
+        </section>    
+
+    </main>
+
+    <!--Footer-->
+    <%- include ("./partials/footer")  %> 
+    
+</body>
+</html>

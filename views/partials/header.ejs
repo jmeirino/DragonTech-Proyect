@@ -1,0 +1,46 @@
+<header class="header">
+    
+        <div class="logo">
+           <img src="/img/logo2.png" alt="">
+        </div>
+        
+        <nav class="nav-header" id="menu">
+
+        <ul class="menu" id="menu">    
+
+            <li class="menu-item"><a class="menu-item_link" href="/"><i class="fa-solid fa-house"></i>  HOME</a></li>
+            <li class="menu-item"><a class="menu-item_link" href="/productos/productList"><i class="fa-solid fa-list-ul"></i>  PRODUCTOS</a></li>
+                  
+        
+            <% if (locals.isLogged) { %>
+
+                <% if (locals.userLogged.categoria === "administrador" ) { %>
+                    <li class="menu-item"><a class="menu-item_link" href="/administrador"><i class="fa-solid fa-screwdriver-wrench"></i>  ADMINISTRADOR</a></li>
+                <% } %>
+
+                    <li class="menu-item"><a class="menu-item_link" href="/users/userProfile"><i class="fa-solid fa-user"></i>  <%= locals.userLogged.nombre %>  <i class="fa-solid fa-caret-down"></i></a>
+                        
+                    </li>
+
+            <% } else { %>
+        
+                <li class="menu-item"><a class="menu-item_link" href="/users/login"><i class="fa-solid fa-arrow-right-to-bracket"></i>  LOGIN</a></li>
+                <li class="menu-item"><a class="menu-item_link" href="/users/register">REGISTRO</i></a></li>
+
+            <% } %>
+
+            <li class="menu-item"><a class="menu-item_link" href="/productos/productCart"><i class="fa-solid fa-cart-shopping"></i>  CARRITO </i></a></li>
+            
+            
+
+        </ul>
+        
+    </nav>
+    
+    <div class="menu-burger" id="btnMenu">
+        <a href="#"> <i class="fa-solid fa-bars"></i> </a>
+
+    </div>
+
+    <script src="/js/menuHeader.js"></script>
+</header>
