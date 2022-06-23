@@ -22,7 +22,7 @@ Benchmarking
 4-https://compragamer.com/?seccion=3&cate=8&nro_max=50&gclid=CjwKCAjwiuuRBhBvEiwAFXKaNOhpAM65ZEL_H6ZC1lsx7VU2RStGzEsLDvSQgtOEQzJZznBPCFPqcBoCth0QAvD_BwE
 
 Nuestro Repo
-https://github.com/german-carosio/Grupo6_TheRollingCode.git
+https://github.com/german-carosio/DragonTech-Proyect.git
 
 Nuestro Tablero
 https://trello.com/b/NYczpZsO/rolling-code
