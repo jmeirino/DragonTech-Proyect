@@ -89,11 +89,21 @@
                                 <%= errors.email.msg %> 
                             </div>
                         <% } %>
-                    
+                    <!--
                     <select name="categoria" >
                         <option value="">Seleccione una opción</option>
                         <option value="administrador" <%= locals.old && old.categoria === "administrador" ? "selected" : ""  %> >Administrador</option>
                         <option value="cliente" <%= locals.old && old.categoria === "cliente" ? "selected" : ""  %> >Cliente</option>
+                    </select>
+                    -->
+
+                    <select name="roles_id">
+                        <option value="" disabled selected>Elige un Rol</option>
+                        <% roles.forEach(rol => { %>
+                        <option value="<%= rol.id %>"><%= rol.nombre %> </option>
+                        <% }) %>
+                        
+                        
                     </select>
                     
                         <% if (locals.errors && errors.categoria) { %>
@@ -102,6 +112,8 @@
                             </div>
                         <% } %>
                     
+
+
                     <input type="file" name="img" >
                     <p>*Este campo no es obligatorio</p> 
                     <!--

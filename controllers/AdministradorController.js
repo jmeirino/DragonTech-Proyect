@@ -1,3 +1,4 @@
+
 const fs = require('fs');
 const path = require ("path");
 //requiero el modulo usuario con su CRUD
@@ -5,6 +6,7 @@ const User = require ("../models/User");
 const Product = require ("../models/Product")
 const {validationResult} = require("express-validator");
 const bcryptjs = require ("bcryptjs");
+const db = require("../database/models")
 
      let allusers;
 
@@ -60,56 +62,75 @@ let AdministradorController = {
 //USUARIOS
      usersList: (req,res) => {
 
-        let allusers = User.findAll();
-        
-        
-        res.render("usersList", {usuarios : allusers});
+          db.Usuario.findAll({ 
+               include: "rol"
+               
+          })
+              .then(function (usuarios) {
+               console.log(JSON.stringify(usuarios, null, 2));
+                  res.render("usersList", {usuarios:usuarios} )
+                  
+              })
+                 
      },
 
      //Creacion de usuario
      usersCreate: (req,res) => {
-        
-          res.render("usersCreate");
+          db.Rol.findAll()
+              .then(function (roles) {
+                  res.render("usersCreate", {roles:roles})
+              })
+              
      },
 
-     usersSave: (req,res) => {
+     usersSave: async(req,res) => {
+
 
           //validacion de campos
           let validaciones = validationResult(req);
 
           if (validaciones.errors.length > 0) { 
 
-               return res.render("register", {errors:validaciones.mapped(), old: req.body});
+               db.Rol.findAll()
+              .then(function (roles) {
+                  return res.render("usersCreate", {roles:roles, errors:validaciones.mapped(), old: req.body})
+              })  
 
           } 
 
           //validando que el mail no esté registrado
-          let userInDB = User.findByField("email", req.body.email);
-
+          let userInDB = await db.Usuario.findOne({
+               where: {
+                    email: req.body.email
+               }
+          })
+              
+          
           if (userInDB) {
 
                return res.render("register", {errors: {
                     email: {
-                         msg:"Este email ya está registrado"
+                         msg:"No ha sido posible crear el usuario"
                       }}
                        , old: req.body}
                );
           }
 
-          //usando imagen default en caso que el usuario no cargue una
+          
+           //usando imagen default en caso que el usuario no cargue una
           let imgDefault = req.file ? req.file.filename : "default.png";
 
-          let userToCreate = {
-             ...req.body,
-             password: bcryptjs.hashSync(req.body.password, 10),//codificando el password
-             img:imgDefault
-          }
+          db.Usuario.create({
+          ...req.body,
+          password: bcryptjs.hashSync(req.body.password, 10),//codificando el password
+          img: imgDefault
+		
 
-          //creando usuario nuevo
-          let userCreated =  User.create(userToCreate);
+        })
+        
+          return res.redirect("usersList")
 
-          return res.redirect("/administrador/usersList");
-     },
+        },
 
      //Editar usuario 
      usersEdit: (req,res) => {

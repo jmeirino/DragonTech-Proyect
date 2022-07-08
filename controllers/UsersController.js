@@ -3,6 +3,7 @@ const fs = require('fs');
 const User = require ("../models/User");
 const {validationResult} = require("express-validator");
 const bcryptjs = require ("bcryptjs");
+const db = require("../database/models")
 
 
 let UsersController = {
@@ -58,12 +59,17 @@ let UsersController = {
          return res.render("login");
      },
 //Proceso de logueo
-     loginProcess: (req,res) => {
+     loginProcess: async(req,res) => {
           
-          let userToLogin = User.findByField("email", req.body.email);
-          
+          //let userToLogin = User.findByField("email", req.body.email);
+          let userToLogin = await db.Usuario.findOne({
+               where: {
+                    email: req.body.email
+               }
+          })
+
           //si el email me da TRUE  
-          if (userToLogin) {
+          if (userToLogin && userToLogin.activo === 1) {
 
                let okPass = bcryptjs.compareSync(req.body.password, userToLogin.password)
                //Si la pass me da TRUE
@@ -74,8 +80,6 @@ let UsersController = {
                     if (req.body.recordar_usuario) {
                          res.cookie("userEmail", req.body.email, { maxAge: 365 * 24 * 60 * 60 * 1000 })//la cookie dura 1 año
                     }
-
-                   
 
                     return res.redirect("/users/userProfile")
                    
