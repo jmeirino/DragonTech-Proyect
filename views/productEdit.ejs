@@ -18,22 +18,31 @@
             <article class="editar-producto">
 
                 
-                <p>ID de producto: <%= productoEdit.id %> </p>
+                <p>ID de producto: <%= producto.id %> </p>
 
-                <img src="/img/imgProducts/<%= productoEdit.img %>" alt="">   
+                <img src="/img/imgProducts/<%= producto.img %>" alt="">   
 
-                <form action="/administrador/productEdit/<%= productoEdit.id %>?_method=PUT " method="POST" enctype="multipart/form-data">
+                <form action="/administrador/productEdit/<%= producto.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                 
-                    <input value="<%= productoEdit.marca %>" type="text" name="marca" id="marca" required placeholder="Marca" >
-                    <input value="<%= productoEdit.modelo %>" type="text" name="modelo" id="modelo" required placeholder="Modelo" >
-                    <input value="<%= productoEdit.precio %>" type="text" name="precio" id="precio" required placeholder="Precio">
-                    <textarea name="detalle" id="detalle" required placeholder="Detalle de producto"><%= productoEdit.detalle %></textarea>           
-                    <select  name="categoria" id="categoria">
-                        <option value="">Categoria</option>
-                        <option value="headset" <%= productoEdit.categoria === "headset" ? "selected" : "" %> >Headset</option>
-                        <option value="mouse" <%= productoEdit.categoria === "mouse" ? "selected" : "" %>>Mouse</option>
-                        <option value="teclado" <%= productoEdit.categoria === "teclado" ? "selected" : "" %>>Teclado</option>
+                    <input value="<%= producto.marca %>" type="text" name="marca" id="marca" required placeholder="Marca" >
+                    <input value="<%= producto.modelo %>" type="text" name="modelo" id="modelo" required placeholder="Modelo" >
+                    <input value="<%= producto.precio %>" type="text" name="precio" id="precio" required placeholder="Precio">
+                    <textarea name="detalle" id="detalle" required placeholder="Detalle de producto"><%= producto.detalle %></textarea> 
+                    
+                    <select name="categorias_id">
+                        <% categorias.forEach(categoria => { %>
+    
+                            <% if (categoria.id === producto.categorias_id) { %>
+                                <option value="<%= categoria.id %>" selected><%= categoria.nombre %></option>
+                            <% } else { %>    
+                                <option value="<%= categoria.id %> "><%= categoria.nombre %> </option>
+                            <% } %>
+    
+                         
+                        <% }) %>
+                    
                     </select>
+                    
                     <br>
                     <label for="file">Imagen de Producto</label>
                     <input type="file" name="img" id="img"  accept=".jpg, .png">

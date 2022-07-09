@@ -25,11 +25,11 @@
                     <input type="text" name="modelo" id="modelo" required placeholder="Modelo">
                     <input type="text" name="precio" id="precio" required placeholder="Precio">
                     <textarea  name="detalle" id="detalle" required placeholder="Detalle de producto"></textarea>
-                    <select  name="categoria" id="categoria">
-                        <option value="">Categoria</option>
-                        <option value="headset">Headset</option>
-                        <option value="mouse">Mouse</option>
-                        <option value="teclado">Teclado</option>
+                    <select name="categorias_id">
+                        <option value="" disabled selected>Elige una Categoria</option>
+                        <% categorias.forEach(categoria => { %>
+                        <option value="<%= categoria.id %>"><%= categoria.nombre %> </option>
+                        <% }) %>
                     </select>
                     <br>
                     <label for="file">Imagen de Producto</label>

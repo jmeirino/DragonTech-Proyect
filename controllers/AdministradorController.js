@@ -143,7 +143,7 @@ let AdministradorController = {
 
      },
     
-     //Editar producto (faltan validaciones y hacerlo a traves de models)
+
      usersUpdate:async(req,res) => {
 
           let user = await db.Usuario.findByPk(req.params.id)
@@ -199,98 +199,87 @@ let AdministradorController = {
 
      productListAdm:(req,res) => {
 
-          let allProducts = Product.findAll();
-        
-        
-          res.render("productListAdm", {productos : allProducts});
+          db.Producto.findAll({ 
+               include: "categoria"
+               
+          })
+              .then(function (productos) {
+               
+               res.render("productListAdm", {productos : productos});
+                  
+              })
+          
      },
 
 //crear producto
      productCreate:(req,res) => {
      
-     leerJson2();
+          db.Categoria.findAll()
+          .then(function (categorias) {
+              res.render("productCreate", {categorias:categorias})
+          })
           
-     res.render("productCreate", {productos:productos});
 },
      productSave:(req,res) => {
-          //if que valida si hay archivo de imagen
-          if (req.file) {
-          
-               leerJson2();
-          
-          
-               let ultimoProd = productos.length -1;
-               let nuevoId = productos[ultimoProd].id + 1     
-
-               let productoNuevo = {
-
-                    id: nuevoId,
-                    marca: req.body.marca,
-                    modelo:req.body.modelo,
-                    precio: req.body.precio,
-                    detalle: req.body.detalle,
-                    categoria:req.body.categoria,
+          //Faltan validaciones       
+              
+               db.Producto.create({
+                    ...req.body,
                     img: req.file.filename
-          
-               };
-     
-
-               productos.push(productoNuevo);
-
-               escribirJson2();
-
-               res.redirect("productListAdm");
-
-          }else {
-               res.render("productCreate", {productos:productos});
-          }
+               })
+               
+               return res.redirect("/administrador/productListAdm");
      },
 
 //Editar producto 
      productEdit:(req,res) => {
 
-          leerJson2();
-
-          const producto = productos.find(element =>{
-          return element.id === parseInt(req.params.id)
-          })
-
-          res.render("productEdit",{productoEdit: producto});
+               let pedidoProductos = db.Producto.findByPk(req.params.id)
+               let pedidoCategorias = db.Categoria.findAll()
+     
+               Promise.all([pedidoProductos, pedidoCategorias])
+                    .then(function ([producto, categorias]) {
+                         res.render("productEdit", {producto:producto, categorias:categorias})
+                    })
+               
      },
 
      //Editar producto 
-     productUpdate:(req,res) => {
+     productUpdate:async(req,res) => {
 
-          leerJson2();
+          //Faltan validaciones  
+
+          let user = await db.Producto.findByPk(req.params.id)
+  
+          let imgEdit = req.file ?  req.file.filename : user.img; 
+  
+          db.Producto.update({
+  
+              ...req.body,
+              img: imgEdit
+  
+              }, {
+              
+                  where:{ id: req.params.id }
+  
+              })
+              .then(function (data) {
+                    return res.redirect("/administrador/productListAdm");
+              })
+          
            
-          productos.forEach(element => {
+     
           
-               let imgEdit = req.file ?  req.file.filename : element.img;
-               
-               if (element.id === parseInt(req.params.id)) {
-                    element.marca = req.body.marca;
-                    element.modelo = req.body.modelo;
-                    element.precio = req.body.precio;
-                    element.detalle = req.body.detalle;
-                    element.categoria = req.body.categoria;
-                    element.img = imgEdit ;
-               }
-               
-          });
-          
-
-          escribirJson2();
-
-          res.render("productListAdm");
      },
 
 //Eliminar producto 
      productDelete:(req,res) => {
 
-          //utilizo el delete del modelo Product y le paso como valor el id  
-          Product.delete(parseInt(req.params.id));
+          db.Producto.destroy({
+               where: {id: req.params.id}
+          })
 
-          return res.render("/administrador/productListAdm");
+          return res.redirect("/administrador/productListAdm");
      }
     
 

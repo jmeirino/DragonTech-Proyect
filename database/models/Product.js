@@ -20,9 +20,6 @@ module.exports = function (sequelize, dataTypes) {
 		detalle: {
             type: dataTypes.STRING
         },
-		email: {
-            type: dataTypes.STRING
-        },
 		img: {
             type: dataTypes.STRING
         },
