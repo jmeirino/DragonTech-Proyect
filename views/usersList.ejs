@@ -32,7 +32,13 @@
                         <p>Telefono: <%= element.telefono %> </p>
                         <p>Email: <%= element.email %> </p>
                         <p>Rol: <%= element.rol.nombre %> </p>
+                        <p>Estado: <% if (element.activo === 1) { %>
+                            ACTIVO
+                         <% } else { %>
+                            INACTIVO
+                        <% } %>  
                         
+                        </p>
                     </div>
 
                     <div class="botonesCrud-usuarios">

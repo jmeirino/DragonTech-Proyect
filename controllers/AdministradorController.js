@@ -1,8 +1,4 @@
 
-const fs = require('fs');
-const path = require ("path");
-//requiero el modulo usuario con su CRUD
-const User = require ("../models/User");
 const Product = require ("../models/Product")
 const {validationResult} = require("express-validator");
 const bcryptjs = require ("bcryptjs");
@@ -50,11 +46,11 @@ const db = require("../database/models")
 // OBJETO CONTROLADOR ADMINISTRADOR
 let AdministradorController = {
      
-     filename: "./database/usuarios.json",
+     //filename: "./database/usuarios.json",
    
      administrador: (req,res) => {
 
-         res.render("administrador");
+        return res.render("administrador");
      },
 
 
@@ -67,8 +63,8 @@ let AdministradorController = {
                
           })
               .then(function (usuarios) {
-               console.log(JSON.stringify(usuarios, null, 2));
-                  res.render("usersList", {usuarios:usuarios} )
+               
+                 return res.render("usersList", {usuarios:usuarios} )
                   
               })
                  
@@ -76,6 +72,7 @@ let AdministradorController = {
 
      //Creacion de usuario
      usersCreate: (req,res) => {
+
           db.Rol.findAll()
               .then(function (roles) {
                   res.render("usersCreate", {roles:roles})
@@ -93,7 +90,7 @@ let AdministradorController = {
 
                db.Rol.findAll()
               .then(function (roles) {
-                  return res.render("usersCreate", {roles:roles, errors:validaciones.mapped(), old: req.body})
+                  return res.render("usersCreate", { roles:roles, errors:validaciones.mapped(), old: req.body })
               })  
 
           } 
@@ -108,7 +105,7 @@ let AdministradorController = {
           
           if (userInDB) {
 
-               return res.render("register", {errors: {
+               return res.render("usersCreate", {errors: {
                     email: {
                          msg:"No ha sido posible crear el usuario"
                       }}
@@ -116,6 +113,7 @@ let AdministradorController = {
                );
           }
 
+          //crear usuario
           
            //usando imagen default en caso que el usuario no cargue una
           let imgDefault = req.file ? req.file.filename : "default.png";
@@ -124,63 +122,73 @@ let AdministradorController = {
           ...req.body,
           password: bcryptjs.hashSync(req.body.password, 10),//codificando el password
           img: imgDefault
-		
+          })
 
-        })
         
-          return res.redirect("usersList")
+        
+          return res.redirect("/administrador/usersList")
 
         },
 
      //Editar usuario 
      usersEdit: (req,res) => {
 
-          let userEdit = User.findByPk(parseInt(req.params.id));
+          let pedidoUsuarios = db.Usuario.findByPk(req.params.id)
+          let pedidoRoles = db.Rol.findAll()
 
+          Promise.all([pedidoUsuarios, pedidoRoles])
+               .then(function ([usuario, roles]) {
+                    res.render("usersEdit", {usuario:usuario, roles:roles})
+               })
 
-          return  res.render("usersEdit", {userEdit: userEdit});
      },
     
-
      //Editar producto (faltan validaciones y hacerlo a traves de models)
-     usersUpdate:(req,res) => {
-     
-          leerJson()
+     usersUpdate:async(req,res) => {
 
-          allusers.forEach(element => {
+          let user = await db.Usuario.findByPk(req.params.id)
+  
+          let imgEdit = req.file ?  req.file.filename : user.img; 
+  
+          db.Usuario.update({
+  
+              ...req.body,
+              img: imgEdit
+  
+              }, {
               
-              let imgEdit = req.file ?  req.file.filename : element.img;    
-
-              if (element.id === parseInt(req.params.id)) {
-
-                   
-                   element.nombre = req.body.nombre;
-                   element.apellido = req.body.apellido;
-                   element.documento = req.body.documento;
-                   element.fechaNacimiento = req.body.fechaNacimiento;
-                   element.telefono = req.body.telefono;
-                   element.email = req.body.email;
-                   element.categoria = req.body.categoria;
-                   element.img = imgEdit;
-                   element.password = req.body.password;
-                   
-               }
-              
-          });
-
-                   
-
-          escribirJson();
-        
-          return res.redirect("/administrador/usersList");
+                  where:{ id: req.params.id }
+  
+              })
+              .then(function (data) {
+               return res.redirect("/administrador/usersList");
+              })
+          
      },
 
      //Eliminar usuario 
-     userDelete:(req,res) => {
-          //utilizo el delete del modelo User y le paso como valor el id  
-          User.delete(parseInt(req.params.id));
+     userDelete:async(req,res) => {
 
-          return res.redirect("/administrador/usersList");
+          let user = await db.Usuario.findByPk(req.params.id)
+  
+          db.Usuario.update({
+  
+              activo: 0,
+              
+  
+              }, {
+              
+                  where:{ id: req.params.id }
+  
+              })
+              .then(function (data) {
+               return res.redirect("/administrador/usersList");
+              })
+                
+  
+       
+
+          
      },
 
 

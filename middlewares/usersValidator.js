@@ -11,7 +11,7 @@ const validateUsersCreate = [
         body("fechaNacimiento").isDate().withMessage("Debes completar una fecha de nacimiento"),
         body("telefono").isInt().withMessage("Debes completar un telefono válido"),
 		body("email").isEmail().withMessage("Debes completar el campo con un email válido"),
-        //body("categoria").notEmpty().withMessage("Debes seleccionar una categoría"),
+        //body("categoria").notEmpty().withMessage("Debes seleccionar una categoría"), este campo ahora es roles_id
         body("password").notEmpty().withMessage("Debes completar el campo password"),
         /*body("img").custom((value, {req}) => {
             let file = req.file;

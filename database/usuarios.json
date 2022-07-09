@@ -1,38 +1,62 @@
 [
-	{
-		"id": 1,
-		"nombre": "Administrador",
-		"apellido": "Administrador",
-		"documento": "111",
-		"fechaNacimiento": "2022-06-22",
-		"telefono": "111",
-		"email": "administrador@administrador.com",
-		"categoria": "administrador",
-		"password": "$2a$10$0d984GT2HWePP6B2NzsDIuJq24V8qAqLx8GW16upZoP0fJ423bECi",
-		"img": "1655561486155.png"
-	},
-	{
-		"id": 2,
-		"nombre": "German",
-		"apellido": "Carosio",
-		"documento": "32244174",
-		"fechaNacimiento": "2022-06-07",
-		"telefono": "1161245050",
-		"email": "carosiogerman@gmail.com",
-		"categoria": "cliente",
-		"password": "$2a$10$q712802zVVWO0tASI57EAOXCJohavgfNAMh0sLaEQVs.yQKmU3V3C",
-		"img": "1655577680512.png"
-	},
-	{
-		"id": 3,
-		"nombre": "juan",
-		"apellido": "Perez",
-		"documento": "11111111111",
-		"fechaNacimiento": "2022-06-14",
-		"telefono": "111111111111",
-		"email": "juan@perez.com",
-		"categoria": "cliente",
-		"password": "$2a$10$vL4DHkDlnRDIf8jwv4GjaOMF2JAs/.AyBR.Qim5n82pq81xGcb3JW",
-		"img": "1655853850009.png"
-	}
+ {
+  "id": 1,
+  "nombre": "Administrador",
+  "apellido": "Administrador",
+  "documento": "111",
+  "fechaNacimiento": "2022-06-22",
+  "telefono": "111",
+  "email": "administrador@administrador.com",
+  "categoria": "administrador",
+  "password": "$2a$10$0d984GT2HWePP6B2NzsDIuJq24V8qAqLx8GW16upZoP0fJ423bECi",
+  "img": "1655561486155.png"
+ },
+ {
+  "id": 2,
+  "nombre": "German",
+  "apellido": "Carosio",
+  "documento": "32244174",
+  "fechaNacimiento": "2022-06-07",
+  "telefono": "1161245050",
+  "email": "carosiogerman@gmail.com",
+  "categoria": "cliente",
+  "password": "$2a$10$q712802zVVWO0tASI57EAOXCJohavgfNAMh0sLaEQVs.yQKmU3V3C",
+  "img": "1655577680512.png"
+ },
+ {
+  "id": 3,
+  "nombre": "juan",
+  "apellido": "Perez",
+  "documento": "11111111111",
+  "fechaNacimiento": "2022-06-14",
+  "telefono": "111111111111",
+  "email": "juan@perez.com",
+  "categoria": "cliente",
+  "password": "$2a$10$vL4DHkDlnRDIf8jwv4GjaOMF2JAs/.AyBR.Qim5n82pq81xGcb3JW",
+  "img": "1655853850009.png"
+ },
+ {
+  "id": 4,
+  "nombre": "aa",
+  "apellido": "aa",
+  "documento": "11",
+  "fechaNacimiento": "2022-07-08",
+  "telefono": "11",
+  "email": "aa@aa.com",
+  "password": "$2a$10$G.ZjUMcjF8UGbg.mTj7DKuPrDmuYKaBGgNEkWxDtiX4MWnUUDuE8q",
+  "categoria": "cliente",
+  "img": "default.png"
+ },
+ {
+  "id": 5,
+  "nombre": "11",
+  "apellido": "11",
+  "documento": "11",
+  "fechaNacimiento": "2022-07-14",
+  "telefono": "11",
+  "email": "11@11.com",
+  "password": "$2a$10$E2cTkpQlTMi9Vr05LbVU2OeSW97QDvYMBYI0LERXfcdDEAs/2B2D6",
+  "categoria": "cliente",
+  "img": "1657323363807.png"
+ }
 ]

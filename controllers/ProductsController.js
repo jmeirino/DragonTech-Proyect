@@ -1,6 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 const Product = require('../models/Product');
+//nuevo modelo Producto en /database/models
+const db = require("../database/models")
 
 
 
