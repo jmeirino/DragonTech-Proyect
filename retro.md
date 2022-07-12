@@ -1,3 +1,15 @@
+## Retrospectiva Sprint 6
+Comenzar a hacer: Ajustar tiempos de concreción de tareas.
+
+Más de: Dividir el trabajo según aptitudes. Colocamos valor a cada tarea e Trello. Ajustmos Retro según esquema Estrella de Mar.  Trabajo en CSS del sitio para ajustar y mejorar las vistas.
+
+Seguir haciendo: Call diaria vía whatsApp que utilizamos como una daily (Qué hicimos ayer, si encontramos algún impedimento y que haremos hoy). Reunión con nuestro Manager Daniel Duque para ajustar detalles. 
+
+Menos de:
+
+Dejar de hacer: 
+
+
 ## Retrospectiva Sprint 5
 Comenzar a hacer: Dividir el trabajo según aptitudes. Colocamos valor a cada tarea e Trello. Ajustmos Retor según esquema Estrella de Mar. 
 

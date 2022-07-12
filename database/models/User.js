@@ -35,7 +35,8 @@ module.exports = function (sequelize, dataTypes) {
             type: dataTypes.INTEGER
         },
         activo: {
-            type: dataTypes.INTEGER
+            type: dataTypes.INTEGER,
+            allowNull: false
         }
 
     }
