@@ -4,7 +4,7 @@ const router = express.Router();
 const validateUsersCreate = require("../middlewares/usersValidator")
 const upload = require ("../middlewares/multer")
 const guest = require("../middlewares/guest")
-const auth = require("../middlewares/auth")
+const {auth, authAdmin} = require("../middlewares/auth")
 
 
 //llamar al controlador
@@ -23,7 +23,7 @@ router.post("/register", upload.single("img"), validateUsersCreate, UsersControl
 router.get("/userProfile", auth, UsersController.userProfile);
 
 //Deslogueo - Logout
-router.get("/userLogout", UsersController.userLogout);
+router.get("/userLogout", auth, UsersController.userLogout);
 
 //exportar el router
 module.exports = router;

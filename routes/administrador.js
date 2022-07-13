@@ -4,6 +4,7 @@ const router = express.Router();
 const validateUsersCreate = require("../middlewares/usersValidator")
 const upload = require ("../middlewares/multer")
 const uploadProduct = require ("../middlewares/multerProducts")
+const {auth, authAdmin} = require ("../middlewares/auth")
 
 
 
@@ -11,29 +12,29 @@ const uploadProduct = require ("../middlewares/multerProducts")
 const AdministradorController = require ("../controllers/AdministradorController")
 
 //crear las rutas para "/..."  (app.get)
-router.get("/", AdministradorController.administrador);
+router.get("/", auth, authAdmin, AdministradorController.administrador);
 
 //USUARIOS
-router.get("/usersList", AdministradorController.usersList);
+router.get("/usersList", auth, authAdmin, AdministradorController.usersList);
 //crear
-router.get("/usersCreate", AdministradorController.usersCreate);
-router.post("/usersCreate", upload.single("img"), validateUsersCreate, AdministradorController.usersSave);
+router.get("/usersCreate", auth, authAdmin,AdministradorController.usersCreate);
+router.post("/usersCreate", auth, authAdmin,upload.single("img"), validateUsersCreate, AdministradorController.usersSave);
 //Editar
-router.get("/usersEdit/:id", AdministradorController.usersEdit);
-router.put("/usersEdit/:id", upload.single("img"), validateUsersCreate, AdministradorController. usersUpdate);
+router.get("/usersEdit/:id",auth, authAdmin, AdministradorController.usersEdit);
+router.put("/usersEdit/:id", auth, authAdmin,upload.single("img"), validateUsersCreate, AdministradorController. usersUpdate);
 //eliminar
-router.delete("/delete/:id",  AdministradorController.userDelete);
+router.delete("/delete/:id", auth, authAdmin, AdministradorController.userDelete);
 
 //PRODUCTOS
-router.get("/productListAdm", AdministradorController.productListAdm);
+router.get("/productListAdm", auth, authAdmin,AdministradorController.productListAdm);
 //Crear productos
-router.get("/productCreate", AdministradorController.productCreate);
-router.post("/productCreate", uploadProduct.single("img"), AdministradorController.productSave);
+router.get("/productCreate", auth, authAdmin,AdministradorController.productCreate);
+router.post("/productCreate", auth, authAdmin,uploadProduct.single("img"), AdministradorController.productSave);
 //Editar productos
-router.get("/productEdit/:id", AdministradorController.productEdit);
-router.put("/productEdit/:id", uploadProduct.single("img"), AdministradorController.productUpdate);
+router.get("/productEdit/:id", auth, authAdmin,AdministradorController.productEdit);
+router.put("/productEdit/:id", auth, authAdmin,uploadProduct.single("img"), AdministradorController.productUpdate);
 //Borrar productos
-router.delete("/productDelete/:id", AdministradorController.productDelete);
+router.delete("/productDelete/:id", auth, authAdmin, AdministradorController.productDelete);
 
 //exportar el router
 module.exports = router;

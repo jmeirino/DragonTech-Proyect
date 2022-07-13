@@ -1,6 +1,7 @@
 const {validationResult} = require("express-validator");
 const bcryptjs = require ("bcryptjs");
 const db = require("../database/models")
+const userLogged = require("../middlewares/userLogged")
 
 
 let UsersController = {
@@ -73,17 +74,24 @@ let UsersController = {
 
      loginProcess: async(req,res) => {
           
-          //let userToLogin = User.findByField("email", req.body.email);
-          let userToLogin = await db.Usuario.findOne({
-               where: {
-                    email: req.body.email
-               }
-          })
-
+          try {
+               let userToLogin = await db.Usuario.findOne({
+                    where: {
+                         email: req.body.email
+                    }
+               })
+                  
+          
+          console.log(userToLogin);
           //si el email me da TRUE  
-          if (userToLogin && userToLogin.activo === 1) {
+          if (userToLogin && userToLogin.activo == 1 ) {
+
+               console.log("linea 91");
 
                let okPass = bcryptjs.compareSync(req.body.password, userToLogin.password)
+
+               console.log("linea 93", req.body.password);
+
                //Si la pass me da TRUE
                if (okPass) {
                     delete userToLogin.password;//borro la contraseña por seguridad
@@ -108,6 +116,12 @@ let UsersController = {
                });
                
           }
+
+          } catch (error) {
+               console.log(error);
+          }
+
+
           //Si el email no existe mando msj de error
           return res.render("login", {
                errors: {

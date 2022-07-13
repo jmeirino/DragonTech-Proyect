@@ -93,8 +93,9 @@ let AdministradorController = {
                   return res.render("usersCreate", { roles:roles, errors:validaciones.mapped(), old: req.body })
               })  
 
-          } 
+          } else {
 
+               
           //validando que el mail no esté registrado
           let userInDB = await db.Usuario.findOne({
                where: {
@@ -127,6 +128,9 @@ let AdministradorController = {
         
         
           return res.redirect("/administrador/usersList")
+
+          }
+
 
         },
 

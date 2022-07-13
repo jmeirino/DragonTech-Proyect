@@ -1,12 +1,16 @@
 const db = require ("../database/models")
 
 async function userLogged (req, res, next) {
+
     
+    try {
+
+    let emailInCookie = req.cookies.userEmail ? req.cookies.userEmail : "";
     //cookie email
-    let emailInCookie = req.cookies.userEmail
+    
     let userFromCookie = await db.Usuario.findOne({
         where: {
-                       email: "emailInCookie"
+                       email: emailInCookie
 
                   }})
     
@@ -24,9 +28,13 @@ async function userLogged (req, res, next) {
         res.locals.userLogged = req.session.userLogged;
     }
 
-    
-
     next();
+
+    } catch (error) {
+        console.log(error);
+    }
+    
+    
 }
 
 module.exports = userLogged;

@@ -8,10 +8,10 @@ module.exports = {
   //   "port": "3306"
   // },
     "development": {
-    "username": "root",
-    "password": "",
+    "username": "sql10505126",
+    "password": "ajRaZzjdnh",
     "database": "sql10505126",
-    "host": "127.0.0.1",
+    "host": "sql10.freemysqlhosting.net",
     "dialect": "mysql",
     "port": "3306"
   },
