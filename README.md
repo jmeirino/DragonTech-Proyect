@@ -30,6 +30,13 @@ https://trello.com/b/NYczpZsO/rolling-code
 Heroku
 https://damp-ridge-01994.herokuapp.com/
 
+Base de Datos
+Server: sql10.freemysqlhosting.net
+Name: sql10505126
+Username: sql10505126
+Password: ajRaZzjdnh
+Port number: 3306
+
 Autores
 Germán Carosio Trabaja en Claro Argentina y su objetivo primordial es formar parte de un grupo de trabajo donde pueda seguir desarrollando sus aptitudes. Actualmente está estudiando programación en Digital House, demostrando sus aptitudes y su talento acumulado hasta el momento.
 
