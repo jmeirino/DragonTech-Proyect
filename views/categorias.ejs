@@ -12,13 +12,24 @@
    
     <main>
         <!--Nav de categorias-->
-        <%- include("./partials/nav-categorias")  %>
+        <section class="categorias">
+    
+            <h2>Categorias</h2>
+        
+            <ul>
+                <li><a href="/productos/productList ">Todos</a></li>
+                <% categorias.forEach(element => { %>
+                    <li><a href="/productos/categorias/<%= element.id %> "><%= element.nombre %></a></li>
+                <% }) %>
+            </ul>
+        
+        </section>
         
         <section class="productList">
 
             <h2>Lista de productos</h2>
 
-            <% categoria.forEach(element => { %>
+            <% productos.forEach(element => { %>
              
                 <article class="productList__product">
                     

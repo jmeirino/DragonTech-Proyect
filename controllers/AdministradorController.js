@@ -67,16 +67,24 @@ let AdministradorController = {
                  return res.render("usersList", {usuarios:usuarios} )
                   
               })
-                 
+
+              .catch(function (error) {
+               console.log(error);
+             })
      },
 
      //Creacion de usuario
      usersCreate: (req,res) => {
 
           db.Rol.findAll()
+
               .then(function (roles) {
                   res.render("usersCreate", {roles:roles})
               })
+
+              .catch(function (error) {
+               console.log(error);
+             })
               
      },
 
@@ -89,9 +97,14 @@ let AdministradorController = {
           if (validaciones.errors.length > 0) { 
 
                db.Rol.findAll()
+
               .then(function (roles) {
                   return res.render("usersCreate", { roles:roles, errors:validaciones.mapped(), old: req.body })
               })  
+
+              .catch(function (error) {
+               console.log(error);
+             })
 
           } else {
 
@@ -141,9 +154,14 @@ let AdministradorController = {
           let pedidoRoles = db.Rol.findAll()
 
           Promise.all([pedidoUsuarios, pedidoRoles])
+
                .then(function ([usuario, roles]) {
                     res.render("usersEdit", {usuario:usuario, roles:roles})
                })
+
+               .catch(function (error) {
+                    console.log(error);
+                  })
 
      },
     
@@ -167,6 +185,10 @@ let AdministradorController = {
               .then(function (data) {
                return res.redirect("/administrador/usersList");
               })
+
+              .catch(function (error) {
+               console.log(error);
+             })
           
      },
 
@@ -188,6 +210,10 @@ let AdministradorController = {
               .then(function (data) {
                return res.redirect("/administrador/usersList");
               })
+
+              .catch(function (error) {
+               console.log(error);
+             })
                 
   
        
