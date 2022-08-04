@@ -1,3 +1,27 @@
+## Retrospectiva Sprint 7
+Comenzar a hacer:
+Ajustar tiempos de concreción de tareas
+Empezar a trabajar en el Sprint en la fecha indicada
+Ajustar el Trello con definición más específica de tareas
+Ajustar la Retro con mayor descripción de procesos 
+
+Más de: 
+Dividir el trabajo según aptitudes
+Colocamos valor a cada tarea e Trello
+Trabajo en CSS del sitio para ajustar y mejorar las vistas
+Reunión con nuestro Manager Daniel Duque para ajustar detalles.
+
+Seguir haciendo: 
+Call diaria vía whatsApp que utilizamos como una daily (Qué hicimos ayer, si encontramos algún impedimento y que haremos hoy) 
+
+Menos de:
+Cambio de repo y de base de datos
+Trello con descripciones parciales de tareas
+
+Dejar de hacer: 
+Empezar el Sprint con demora
+
+
 ## Retrospectiva Sprint 6
 Comenzar a hacer:
 Ajustar tiempos de concreción de tareas
@@ -17,6 +41,7 @@ Cambio de repo y de base de datos
 
 Dejar de hacer: 
 Empezar el Sprint con demora
+
 
 ## Retrospectiva Sprint 5
 Comenzar a hacer: Dividir el trabajo según aptitudes. Colocamos valor a cada tarea e Trello. Ajustmos Retor según esquema Estrella de Mar. 
