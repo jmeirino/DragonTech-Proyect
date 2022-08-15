@@ -1,37 +1,33 @@
-//Capturar formulario
-window.addEventListener ('load', function () {
-    const formulario = document.querySelector('formulario');
+//Login Validations Capturar formulario
+window.addEventListener ('DOMContentLoaded', function () {
+    document.querySelector("form").addEventListener('submit', validarFormulario); 
+});
 
-    formulario.addEventListener ('submit', function (event){
-        let errores = [];
+function validarFormulario(event) {
+    event.preventDefault();
 
     const campoEmail = document.querySelector('input.email');
-    const caracteresOk = {
-        email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-    }    
-    
-    if (campoEmail.value == '') {
-        errores.push('El campo email debe estar completo');
-
-    } else if (campoEmail.value.caracteresOk) {
-        errores.push('El campo email debe tener caracteres válidos');
-    }
-
     const campoPassword = document.querySelector('input.password');
+    const submitButton = document.querySelector('button');
 
-    if (campoPassword.value == '') {
-        errores.push('El campo password debe estar completo')
+    const emailValido = validateEmail(campoEmail.value.trim());
+
+    if ( !emailValido|| campoPassword.value.trim().length < 5) {
+        submitButton.disabled = true;
     } 
-        
-    if (errores.length > 0) {
-        event.preventDefault();
-
-        let ulErrores = document.querySelector('div.errores ul');
-        for (let i = 0; i < errores.length; i++) {
-
-            ulErrores.innerHTML += '<li>' + errores[i] + '</li>'
-        }
+    else {
+        submitButton.disabled = false;
+        this.submit();
     }
-   
-});
-})
+
+};
+
+//funcion validar email
+function validateEmail(email) {
+    if (email && email.length >= 5 && /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)){
+        return true;
+    }
+
+    alert("Introduzca una dirección de mail válida")
+    return false;
+}

@@ -1,4 +1,3 @@
-
 /*INDEX*/
 
 .banner-index {
@@ -485,6 +484,7 @@
 }
 
 .formulario h2 {
+    font-size: 22px;    
     margin-bottom: 20px;
 }
 
@@ -503,9 +503,14 @@
     margin-right: auto;
 }
 
+.formulario form label {
+    text-align: left;
+    width: 100%;
+}
+
 .formulario form input {
     padding: 5px;
-    margin-top: 15px;
+
     width: 100%;
 }
 
@@ -537,7 +542,9 @@
     font-size: 14px;
 }
 
-
+input:invalid {
+    background-color: pink;
+}
 
 
 @media (min-width: 768px) {

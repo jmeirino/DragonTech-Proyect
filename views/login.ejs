@@ -11,14 +11,18 @@
     
     <main>
         <section class="formulario">
-
+         
             <h2>Login</h2>
 
             <form action="/users/login" method="POST">
  
-                <input type="text" name="email" placeholder="EMAIL">
+                <label b>Email *</b></label>
+                <input class="email" type="email" name="email" placeholder="EMAIL" minlength='5' required onchange="document.querySelector('button').disabled = false">
 
-                <input type="password" name="password" required placeholder="PASSWORD ">
+            <br>
+
+                <label b>Password *</b></label>
+                <input class='password' type="password" name="password" required placeholder="PASSWORD" minlength="5" required>
 
                 
                 <input type="checkbox" name="recordar_usuario"> Recordar mi usuario
@@ -36,13 +40,11 @@
                 <a href="#">¿Perdiste tu contraseña?</a>
                 <a href="/users/register">¿No tienes cuenta?, Registrate</a>
             </form>
-            <p>administrador@administrador.com</p>
-            <p>pass: 123456</p>
         </section>     
     </main>
-    <!--
+
     <script src="/js/userValidator/loginValidations.js"></script>
-        -->
+
     <!--Footer-->
     <%- include ("./partials/footer")  %> 
 

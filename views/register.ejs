@@ -18,11 +18,14 @@
             <article>
                 
                 <form action="/users/register" method="POST" enctype="multipart/form-data" >
-                    
+
+                    <label b>Nombre *</b></label>
                     <input 
+                    class="nombre"
                     type="text" 
                     name="nombre"  
-                    placeholder="Nombre" 
+                    placeholder="Nombre"
+                    required 
                     value="<%= locals.old ? old.nombre : ""  %>">
                     
                     <% if (locals.errors && errors.nombre) { %>
@@ -30,11 +33,16 @@
                             <%= errors.nombre.msg %> 
                         </div>
                     <% } %>
-                    
+
+                    <br>
+
+                    <label b>Apellido *</b></label>
                     <input 
+                    class="apellido"
                     type="text" 
                     name="apellido" 
-                    placeholder="Apellido" 
+                    placeholder="Apellido"
+                    required  
                     value="<%= locals.old ? old.apellido : ""  %>">
                     
                     <% if (locals.errors && errors.apellido) { %>
@@ -43,10 +51,16 @@
                         </div>
                     <% } %>
                     
-                    <input 
+                    <br>    
+
+                    <label b>Documento *</b></label>
+                    <input
+                    class="documento" 
                     type="text" 
                     name="documento" 
                     placeholder="Documento" 
+                    minlength='7' 
+                    required 
                     value="<%= locals.old ? old.documento : ""  %>">
                     
                         <% if (locals.errors && errors.documento) { %>
@@ -55,9 +69,14 @@
                             </div>
                         <% } %>
                     
+                    <br>    
+
+                    <label b>Fecha de Nacimiento *</b></label>    
                     <input 
+                    class="fechaNacimiento"            
                     type="date" 
                     name="fechaNacimiento" 
+                    required 
                     value="<%= locals.old ? old.fechaNacimiento : ""  %>">
                     
                         <% if (locals.errors && errors.fechaNacimiento) { %>
@@ -66,10 +85,16 @@
                             </div>
                         <% } %>
                     
+                    <br>    
+
+                    <label b>Teléfono *</b></label>
                     <input 
+                    class="telefono"
                     type="text" 
                     name="telefono" 
                     placeholder="Telefono" 
+                    minlength='8' 
+                    required 
                     value="<%= locals.old ? old.telefono : ""  %>">
                     
                         <% if (locals.errors && errors.telefono) { %>
@@ -78,10 +103,17 @@
                             </div>
                         <% } %>
                     
+                    <br>    
+
+                    <label b>Email *</b></label>
                     <input 
+                    class="email"
                     type="text" 
                     name="email" 
                     placeholder="Email" 
+                    minlength='5' 
+                    required
+                    onchange="document.querySelector('button').disabled = false" 
                     value="<%= locals.old ? old.email : ""  %>">
                     
                         <% if (locals.errors && errors.email) { %>
@@ -91,15 +123,21 @@
                         <% } %>
                     
                     
-                    <input type="file" name="img" >
-                        <p>*Este campo no es obligatorio</p>        
-                   
+                    <br>    
 
+                    <label b>Foto de Perfil</b></label>
+                    <input type="file" name="img" >
+                   
+                    <br>    
+
+                    <label b>Password *</b></label>
                     <input 
+                    class="password"
                     type="password" 
                     name="password" 
-                    placeholder="Paswword">
-                    
+                    placeholder="Paswword"
+                    minlength='5' 
+                    required> 
                     
                     <% if (locals.errors && errors.password) { %>
                         <div class="text-danger">
@@ -107,8 +145,6 @@
                         </div>
                     <% } %>
                         
-                    
-
                     <br>
                     
                     <button type="submit">CREAR USUARIO</button>
@@ -119,9 +155,9 @@
         </section>    
 
     </main>
-    <!--
+
     <script src="/js/userValidator/registerValidations.js"></script>
-        -->
+
     <!--Footer-->
     <%- include ("./partials/footer")  %> 
     

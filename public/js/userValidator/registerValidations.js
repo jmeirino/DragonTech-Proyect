@@ -1,59 +1,64 @@
 //Capturar formulario
-window.addEventListener ('load', function () {
-    const formulario = document.querySelector('formulario');
+window.addEventListener ('DOMContentLoaded', function () {
+    document.querySelector("form").addEventListener('submit', validarFormulario); 
+});
 
-    formulario.addEventListener ('submit', function (event){
-        let errores = [];
+function validarFormulario(event) {
+    event.preventDefault();
 
     const campoNombre = document.querySelector('input.nombre');
-    if (campoNombre.value == '') {
-        errores.push('El campo nombre debe estar completo')
-    }
-
-    const campoApellido = document.querySelector('input.apellido');
-    if (campoApellido.value == '') {
-        errores.push('El campo apellido debe estar completo')
-    }
-
+    const campoApellido = document.querySelector('input#apellido');
     const campoFechaNacimiento = document.querySelector('input.fechaNacimiento');
-    if (campoFechaNacimiento.value == '') {
-        errores.push('El campo fecha de nacimiento debe estar completo')
-    }
-
     const campoTelefono = document.querySelector('input.telefono');
-    const caracteresOkTelefono = {
-        email: /^[0-9]+$/,
-    }
-    if (campoTelefono.value == '') {
-        errores.push('El campo teléfono debe estar completo')
-    }
-
     const campoEmail = document.querySelector('input.email');
-    const caracteresOkEmail = {
-        email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-    }    
-    
-    if (campoEmail.value == '') {
-        errores.push('El campo email debe estar completo');
-
-    } else if (campoEmail.value.caracteresOk) {
-        errores.push('El campo email debe tener caracteres válidos');
-    }
-
     const campoPassword = document.querySelector('input.password');
+    const submitButton = document.querySelector('button');
 
-    if (campoPassword.value == '') {
-        errores.push('El campo password debe estar completo')
+    
+    let error = false;
+    campoEmail.classList.remove('error');
+    campoNombre.classList.remove('error');
+    campoApellido.classList.remove('error');
+    campoTelefono.classList.remove('error');
+    campoPassword.classList.remove('error');
+    
+    if (!validateEmail(campoEmail.value.trim())) {
+        error = true;
+        campoEmail.classList.add('error');
     } 
-        
-    if (errores.length > 0) {
-        event.preventDefault();
-
-        let ulErrores = document.querySelector('div.errores ul');
-        for (let i = 0; i < errores.length; i++) {
-
-            ulErrores.innerHTML += '<li>' + errores[i] + '</li>'
-        }
+    if(campoNombre.value.trim().length < 2){
+        error = true;
+        campoNombre.classList.add('error');
+    } 
+    if(campoApellido.value.trim().length < 2){
+        error = true;
+        campoApellido.classList.add('error');
     }
-});
-})
+    if (campoTelefono.value.trim().length < 8){
+        error = true;
+        campoTelefono.classList.add('error');
+    }
+    if (campoPassword.value.trim().length < 5){
+        error = true;
+        campoPassword.classList.add('error');
+    }
+
+    if(error){
+        submitButton.disabled = true;
+    }
+    else {
+        submitButton.disabled = false;
+        this.submit();
+    }
+
+};
+
+//funcion validar email
+function validateEmail(email) {
+    if (email && email.length >= 5 && /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)){
+        return true;
+    }
+
+    alert("Introduzca una dirección de mail válida")
+    return false;
+}
