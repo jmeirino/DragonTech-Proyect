@@ -8,34 +8,34 @@ let UsersController = {
    
      register: (req,res) => {
 
-          db.Rol.findAll()
-              .then(function (roles) {
-                return res.render("register", {roles:roles})
-              })
+          return res.render("register")
+             
      },
  
      newRegister: async(req,res) => {
-
-
+     
           //validacion de campos
-          let validaciones = validationResult(req);
 
+
+          let validaciones = validationResult(req);
+          
+    
           if (validaciones.errors.length > 0) { 
 
-               db.Rol.findAll()
-              .then(function (roles) {
-                  return res.render("register", {roles:roles, errors:validaciones.mapped(), old: req.body})
-              })  
+               
+               return res.render("register", {errors:validaciones.mapped(), old: req.body})
+             
 
           } 
-
+           
           //validando que el mail no esté registrado
           let userInDB = await db.Usuario.findOne({
                where: {
                     email: req.body.email
                }
           })
-              
+          
+          
           
           if (userInDB) {
 
@@ -61,7 +61,7 @@ let UsersController = {
         })
           
           return res.redirect("/users/login");
-          
+         
          
      },
 

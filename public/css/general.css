@@ -13,6 +13,10 @@
     
 }
 
+.text-danger {
+    color: red;
+}
+
 body {
     background-color: #525558;
 }
