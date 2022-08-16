@@ -24,8 +24,10 @@
                     class="nombre"
                     type="text" 
                     name="nombre"  
+                    minlength='2'
                     placeholder="Nombre"
-                    required 
+                    required
+                    onchange="document.querySelector('button').disabled = false"
                     value="<%= locals.old ? old.nombre : ""  %>">
                     
                     <% if (locals.errors && errors.nombre) { %>
@@ -42,7 +44,9 @@
                     type="text" 
                     name="apellido" 
                     placeholder="Apellido"
+                    minlength='2'
                     required  
+                    onchange="document.querySelector('button').disabled = false"
                     value="<%= locals.old ? old.apellido : ""  %>">
                     
                     <% if (locals.errors && errors.apellido) { %>
@@ -61,6 +65,7 @@
                     placeholder="Documento" 
                     minlength='7' 
                     required 
+                    onchange="document.querySelector('button').disabled = false"
                     value="<%= locals.old ? old.documento : ""  %>">
                     
                         <% if (locals.errors && errors.documento) { %>
@@ -73,10 +78,14 @@
 
                     <label b>Fecha de Nacimiento *</b></label>    
                     <input 
-                    class="fechaNacimiento"            
+                    class="fechaNacimiento"  
+                    id="datefield"          
                     type="date" 
                     name="fechaNacimiento" 
+                    min="1922-01-01"
+                    max="2010-12-31"
                     required 
+                    onchange="document.querySelector('button').disabled = false"
                     value="<%= locals.old ? old.fechaNacimiento : ""  %>">
                     
                         <% if (locals.errors && errors.fechaNacimiento) { %>
@@ -92,9 +101,10 @@
                     class="telefono"
                     type="text" 
                     name="telefono" 
-                    placeholder="Telefono" 
+                    placeholder="Teléfono" 
                     minlength='8' 
                     required 
+                    onchange="document.querySelector('button').disabled = false"
                     value="<%= locals.old ? old.telefono : ""  %>">
                     
                         <% if (locals.errors && errors.telefono) { %>
@@ -137,7 +147,8 @@
                     name="password" 
                     placeholder="Paswword"
                     minlength='5' 
-                    required> 
+                    required
+                    onchange="document.querySelector('button').disabled = false"> 
                     
                     <% if (locals.errors && errors.password) { %>
                         <div class="text-danger">
