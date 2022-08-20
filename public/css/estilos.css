@@ -134,12 +134,11 @@
 }
 
 .detail-main img {
-    width: 80%;
+    width: 50%;
 }
 
 .detail-main button {
     background-color: var(--amarillo);
-    
     border: none;
     padding: 10px;
     margin: 2px ;
@@ -203,42 +202,42 @@
     } 
 
     .detail-main article img {
-        width: 160%;
+        width: 80%;
+        margin-left: 120px;
     }     
 
     .detail-main article button {
         position: relative;
         font-size: 18px;
         top: 140px;
-        left: 475px;    
+        left: 235px;    
     }
 
-    .detail-main h3 {
+    .detail-main article h3 {
         font-size: 27px;
-        text-align: center;
         margin-bottom: 5px;
-        margin-left: 139px;
+        margin-right: 250px;
     }
 
-    .detail-main h4 {
+    .detail-main article h4 {
         font-size: 21px;
         text-align: center;
         margin-bottom: 5px;
-        margin-left: 139px;
+        margin-right: 250px;
     }
 
-    .detail-main h5 {
+    .detail-main article h5 {
         font-size: 19px;
         text-align: center;
         margin-bottom: 5px;
-        margin-left: 139px;
+        margin-right: 250px;
     }
 
-    .detail-main p {
+    .detail-main article p {
         font-size: 18px;
         text-align: center;
         margin-bottom: 10px;
-        margin-left: 139px;
+        margin-right: 250px;
     }
 }
 
@@ -632,6 +631,12 @@ input:invalid {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    width: 50%;
+}
+
+.section .userProfile-article {
+    width: 25%;
+
 }
 
 
