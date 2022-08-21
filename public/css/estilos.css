@@ -245,8 +245,6 @@
 
 /*PRODUCT LIST Y CATEGORIAS*/
 
-
-
 .categorias ul {
     display: flex;
     justify-content: center;
@@ -281,8 +279,6 @@
     background-color: #fff;
     
 }
-
-
 
 .productList button {
     border: solid var(--lila) 1px;
@@ -509,20 +505,25 @@
 
 .formulario form input {
     padding: 5px;
-
+    margin-top: 10px;
     width: 100%;
 }
 
 .formulario form textarea {
     padding: 5px;
-    margin-top: 15px;
+    margin-top: 10px;
     width: 100%;
 }
 
 .formulario form select {
     padding: 5px;
-    margin-top: 15px;
+    margin-top: 10px;
     width: 100%;
+}
+
+.formulario form input bottom-check {
+    display: flex;
+    margin-top: 5px;
 }
 
 .formulario form button {
@@ -541,7 +542,7 @@
     font-size: 14px;
 }
 
-input:invalid {
+.formulario form input.error {
     background-color: pink;
 }
 
@@ -631,7 +632,8 @@ input:invalid {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 50%;
+    margin-top: 20px;
+    width: 100%;
 }
 
 .section .userProfile-article {
@@ -651,5 +653,5 @@ input:invalid {
 }
 
 .userProfile-article img {
-    width: 35%;
+    width: 30%;
 }

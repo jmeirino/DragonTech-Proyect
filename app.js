@@ -13,6 +13,7 @@ const mainRouter = require ('./routes/main');
 const usersRouter = require ('./routes/users');
 const administradorRouter = require ('./routes/administrador');
 const productsRouter = require ('./routes/products');
+const apiRouter = require('./routes/api');
 
 const app = express();
 const port = 3000;
@@ -52,6 +53,7 @@ app.use("/", mainRouter);
 app.use("/users", usersRouter);
 app.use("/administrador", administradorRouter)
 app.use("/productos", productsRouter)
+app.use(apiRouter);
 
 //levantar servidor 
 app.listen(process.env.PORT || port, () => {

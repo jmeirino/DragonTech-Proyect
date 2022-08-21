@@ -29,7 +29,7 @@
                         <p> <%= element.modelo  %></p>
                     </a>
                    
-                    <p><%= element.precio  %> </p>
+                    <p>$ <%= element.precio.toLocaleString()  %> </p>
 
                     <div class="buttonsBuy-productos">
                         <button class="button-carrito" type="submit">AGREGAR AL CARRITO</button>

@@ -25,7 +25,7 @@
                 <div>    
                 <h3><%= producto.marca %> </h3> 
                 <h5><%= producto.modelo %> </h5>
-                <h3><%= producto.precio %> </h3>
+                <h3>$ <%= producto.precio.toLocaleString() %> </h3>
                 <p><%= producto.detalle %> </p>
                 </div>
             </article>

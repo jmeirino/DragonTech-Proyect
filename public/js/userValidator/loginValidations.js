@@ -12,9 +12,22 @@ function validarFormulario(event) {
 
     const emailValido = validateEmail(campoEmail.value.trim());
 
-    if ( !emailValido|| campoPassword.value.trim().length < 5) {
+    campoEmail.classList.remove('error');
+    campoPassword.classList.remove('error');
+
+    let error = false;
+    if (!emailValido) {
+        error = true;
+        campoEmail.classList.add('error');
+    }
+    if(campoPassword.value.trim().length < 5){
+        error = true;
+        campoPassword.classList.add('error');
+    }
+
+    if(error){
         submitButton.disabled = true;
-    } 
+    }
     else {
         submitButton.disabled = false;
         this.submit();
@@ -27,7 +40,6 @@ function validateEmail(email) {
     if (email && email.length >= 5 && /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)){
         return true;
     }
-
-    alert("Introduzca una dirección de mail válida")
+    
     return false;
 }

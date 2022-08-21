@@ -64,7 +64,6 @@ function validateEmail(email) {
         return true;
     }
 
-    alert("Introduzca una dirección de mail válida")
     return false;
 }
 

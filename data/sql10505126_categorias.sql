@@ -37,7 +37,7 @@ CREATE TABLE `categorias` (
 
 LOCK TABLES `categorias` WRITE;
 /*!40000 ALTER TABLE `categorias` DISABLE KEYS */;
-INSERT INTO `categorias` VALUES (1,'headseat'),(2,'mouse'),(3,'teclado');
+INSERT INTO `categorias` VALUES (1,'Headseat'),(2,'Mouse'),(3,'Teclado');
 /*!40000 ALTER TABLE `categorias` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

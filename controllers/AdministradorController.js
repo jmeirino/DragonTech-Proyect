@@ -59,9 +59,11 @@ let AdministradorController = {
      usersList: (req,res) => {
 
           db.Usuario.findAll({ 
-               include: "rol"
-               
-          })
+               include: "rol",
+               where: {
+                    activo: 1    
+               }
+               })
               .then(function (usuarios) {
                
                  return res.render("usersList", {usuarios:usuarios} )

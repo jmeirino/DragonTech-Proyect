@@ -37,7 +37,7 @@
                         <p><%= element.modelo  %></p>
                     
                    
-                    <p><%= element.precio  %> </p>
+                    <p>$ <%= element.precio.toLocaleString()  %> </p>
 
                     <div class="buttonsCrud-products">
                         <a href="/administrador/productEdit/<%= element.id %> ">
