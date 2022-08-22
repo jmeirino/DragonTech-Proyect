@@ -12,7 +12,7 @@ let apiProductosController = {
                     id: producto.id,
                     name: producto.marca + ' ' + producto.modelo,
                     description: producto.detalle,
-                    caterogia: producto.categoria,
+                    categoria: producto.categoria,
                     img: producto.img,
                     detail: req.protocol + '://' + req.get('host') + '/api/products/' + producto.id
                 }
