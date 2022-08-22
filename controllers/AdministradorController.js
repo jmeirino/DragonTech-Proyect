@@ -92,21 +92,15 @@ let AdministradorController = {
 
      usersSave: async(req,res) => {
 
-
+          console.log(req.body);
           //validacion de campos
           let validaciones = validationResult(req);
 
           if (validaciones.errors.length > 0) { 
-
-               db.Rol.findAll()
-
-              .then(function (roles) {
-                  return res.render("usersCreate", { roles:roles, errors:validaciones.mapped(), old: req.body })
-              })  
-
-              .catch(function (error) {
-               console.log(error);
-             })
+              
+             
+               return res.render("usersCreate", {errors:validaciones.mapped(), old: req.body })
+             
 
           } else {
 
@@ -133,7 +127,7 @@ let AdministradorController = {
           
            //usando imagen default en caso que el usuario no cargue una
           let imgDefault = req.file ? req.file.filename : "default.png";
-
+          
           db.Usuario.create({
           ...req.body,
           password: bcryptjs.hashSync(req.body.password, 10),//codificando el password

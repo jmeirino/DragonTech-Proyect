@@ -90,9 +90,9 @@
                             </div>
                         <% } %>
                     
-
+                    <!---->
                     <select name="roles_id">
-                        <option value="" disabled selected>Elige un Rol</option>
+                        <option value= "1">Elige un Rol</option>
                         <% roles.forEach(rol => { %>
                         <option value="<%= rol.id %>"><%= rol.nombre %> </option>
                         <% }) %>
