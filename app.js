@@ -15,10 +15,12 @@ const administradorRouter = require ('./routes/administrador');
 const productsRouter = require ('./routes/products');
 const apiRouter = require('./routes/api');
 
+var cors = require('cors')
+
 const app = express();
 const port = 3000;
 
-
+app.use(cors()) // Use this after the variable declaration
 //session
 app.use(session({ 
   secret: "shh",
